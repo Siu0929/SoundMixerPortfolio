@@ -1,0 +1,427 @@
+/* ============================================================
+   Design Tokens — STUDIO (Figma frames 1:60 + 1:2)
+   ============================================================ */
+
+@import "tailwindcss";
+
+/* Inter loaded as a single variable font from /public/fonts so the design
+   always renders with the correct typography, with no dependency on Google
+   Fonts being reachable at runtime. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/Inter-Variable.woff2") format("woff2");
+}
+
+:root {
+  /* Surfaces */
+  --color-paper: #ffffff;
+  --color-paper-muted: #f5f5f5;
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #1a1a1a;
+  --color-mute: #6b6b6b;
+  --color-mute-soft: #9a9a9a;
+  --color-mute-divider: #4c4546;
+  --color-line: #e6e6e6;
+  --color-line-strong: #cfcfcf;
+  --color-deep: #000000;
+  --color-snow: #fafafa;
+
+  /* Layout */
+  --page-x: 10px;
+  --topbar-y: 24px;
+}
+
+@theme inline {
+  --color-paper: #ffffff;
+  --color-paper-muted: #f5f5f5;
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #1a1a1a;
+  --color-mute: #6b6b6b;
+  --color-mute-soft: #9a9a9a;
+  --color-mute-divider: #4c4546;
+  --color-line: #e6e6e6;
+  --color-line-strong: #cfcfcf;
+  --color-deep: #000000;
+  --color-snow: #fafafa;
+
+  --radius-pill: 9999px;
+
+  /* Override Tailwind's default --font-sans so it doesn't override Inter.
+     Setting it here puts it in @layer theme after Tailwind's defaults,
+     and referencing "Inter" directly means no CSS variable conflict. */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+html,
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================================
+   Type — Figma frames 1:60 (hero) + 1:2 (project page)
+   ============================================================ */
+
+/* STUDIO wordmark — Inter Bold 20px, -0.025em tracking. */
+.wordmark {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-transform: none;
+}
+
+/* Page heading — Inter Semi Bold 48px, -1.92px tracking, line-height 52.8px. */
+.h-page {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  font-size: 48px;
+}
+
+/* Hero heading — Inter Medium 80px, -3.2px tracking, line-height 88px. */
+.h-hero {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  font-size: 80px;
+}
+
+/* Page hero (smaller viewport) */
+.h-section {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+  font-size: clamp(28px, 4.6vw, 56px);
+}
+
+.h-display {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  font-size: clamp(40px, 7vw, 88px);
+}
+
+.h-manifesto {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  font-size: clamp(36px, 7.4vw, 96px);
+}
+
+/* Nav link — Inter Semi Bold 14px / 12px, letter-spacing uppercase. */
+.nav-link {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.nav-link-dark {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.nav-link-light {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* Footer micro copy — Inter Regular 10px, uppercase. */
+.label {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--color-ink);
+}
+
+.label-mute {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--color-mute);
+}
+
+.footer-copy {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.body {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-ink-soft);
+}
+
+.body-lg {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--color-ink-soft);
+}
+
+/* ============================================================
+   Buttons — Figma 1:60 "VIEW PROJECTS" white-pill / 1:2 outline
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 24px;
+  border: 1px solid var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--color-ink);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 24px;
+  border: 1px solid var(--color-ink);
+  background: transparent;
+  color: var(--color-ink);
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.btn-outline:hover {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Figma 1:60 — solid white block, black uppercase Inter Semi Bold 12px,
+   40px horizontal / 20px vertical padding. */
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 40px;
+  background: #ffffff;
+  color: #0a0a0a;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.btn-hero:hover {
+  background: #f0f0f0;
+}
+
+.btn-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 24px;
+  border: 1px solid var(--color-paper);
+  background: transparent;
+  color: var(--color-paper);
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.btn-light:hover {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.btn .arrow,
+.btn-outline .arrow,
+.btn-light .arrow,
+.btn-hero .arrow {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+}
+
+/* ============================================================
+   Layout primitives
+   ============================================================ */
+.page {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.divider {
+  height: 1px;
+  background: var(--color-line);
+  width: 100%;
+}
+
+.divider-strong {
+  height: 1px;
+  background: var(--color-line-strong);
+  width: 100%;
+}
+
+/* ============================================================
+   Image helpers
+   ============================================================ */
+.cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Figma 1:60 — black overlay with mix-blend-mode:luminosity at 60% opacity
+   layered over the architectural hero image. */
+.hero-luminosity {
+  background: #000000;
+  mix-blend-mode: luminosity;
+  opacity: 0.6;
+}
+
+/* Hide scrollbars on horizontal lists */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
